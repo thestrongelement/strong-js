@@ -7,7 +7,7 @@ var app = {
     model.init();
     view.init();
     console.log('app reporting: go!');
-  }
+} 
   
 }
 

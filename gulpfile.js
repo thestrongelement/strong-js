@@ -9,6 +9,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
 var dir__public = 'public';
+var dir__data = 'data';
 var dir__src_html = 'views';
 var dir__src_js = 'js';
 var dir__dist = 'dist';
@@ -86,7 +87,8 @@ gulp.task('default', ['www'], function () {
       baseDir: [dir__www],
       index: 'index.html',
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'bower_components',
+        '/api': dir__data
       }
     }
   });
