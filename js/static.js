@@ -1,9 +1,8 @@
-
+console.log('oh hey!')
 
 var model = {
   init: function() {
-    
-    console.log('model reporting: go!')
+    console.log('model')
   }
 }
 
@@ -14,18 +13,16 @@ var helper = {
 
 var view = {
   init: function() {
-    
-    console.log('view reporting: go!')
+    console.log('view')
   }
   
 }
 
 var app = {
   init: function() {
-
+    console.log('app')
     model.init();
     view.init();
-    console.log('app reporting: go!')
   }
   
 }

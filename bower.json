@@ -16,6 +16,6 @@
     "tests"
   ],
   "devDependencies": {
-    "strong-css": ">=0.0.1"
+    "strong-css": ">=0.0.6"
   }
 }
