@@ -5,9 +5,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>/* strong-js */</title>
-    
     <link rel=stylesheet href=bower_components/strong-css/dist/css/strong-css.css>
-    <script src=/js/strong.js></script>
     </head>
     
     <body class=app--thestrongelement id=thestrongelement-com>
@@ -17,10 +15,14 @@
           </header>
           <main class="app__main page--index" role=main>
 
-                <div id="lead" class="ui__panel">
-                    bam!
-                </div>
 
+           <ul class="navlist--flex">
+             <li class="item__"><span id="years"></span> Years</li>
+             <li class="item__"><span id="months"></span> Months</li>
+             <li class="item__"><span id="days"></span> Days</li>
+           </ul>
+            
+            
           </main>
           <footer>
             &copy; 2016 The Strong Element Company
@@ -28,5 +30,6 @@
       
       
       </div>
-	</body>
+      <script src=/js/strong.js></script>
+		</body>
 </html>
