@@ -50,7 +50,7 @@ gulp.task('browserify', function () {
     debug: true
   });
 
-  b.bundle()
+  b.bundle().on('error', handleError)
     .pipe(source('strong.js'))
     .pipe(buffer())
     .pipe($.sourcemaps.init({loadMaps: true}))
@@ -97,4 +97,9 @@ gulp.task('default', ['www'], function () {
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', dir__www]));
+
+function handleError(err) {
+  console.log(err.toString());
+  this.emit('end');
+}
 
