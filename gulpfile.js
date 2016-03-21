@@ -12,6 +12,7 @@ var dir__public = 'public';
 var dir__data = 'data';
 var dir__src_html = 'views';
 var dir__src_js = 'js';
+var dir__src_test = 'test';
 var dir__dist = 'dist';
 var dir__www = 'www';
 
@@ -48,7 +49,13 @@ gulp.task('lint', function() {
     gulp.src(dir__src_js+'/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('default'))
-})
+});
+
+gulp.task('test', function() {
+    gulp.src(dir__src_test+'/*.js')
+    .pipe($.mocha())
+});
+
 
 gulp.task('browserify', function () {
   var b = browserify({
