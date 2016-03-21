@@ -51,17 +51,18 @@ gulp.task('lint', function() {
     .pipe($.jshint.reporter('default'))
 });
 
-gulp.task('test', function() {
+gulp.task('unit-test', function() {
     gulp.src(dir__src_test+'/*.js')
     .pipe($.mocha())
 });
 
-gulp.task('a11y', function() {
+gulp.task('access', function() {
     gulp.src(dir__src_html+'/**/*.html')
     .pipe($.a11y())
     .pipe($.a11y.reporter());
 });
 
+gulp.task('test', ['lint','unit-test','access']);
 
 gulp.task('browserify', function () {
   var b = browserify({
@@ -96,7 +97,7 @@ gulp.task('public', function() {
 
 
 //build
-gulp.task('www', $.sequence('clean',['public','html','browserify']));
+gulp.task('www', $.sequence('clean',['public','html','browserify','test']));
 
 gulp.task('default', ['www'], function () {
   browserSync.init({
@@ -111,8 +112,8 @@ gulp.task('default', ['www'], function () {
       }
     }
   });
-  gulp.watch(dir__src_html+'/**/*.html', ['html']);
-  gulp.watch(dir__src_js+'/**/*.js', ['browserify']);
+  gulp.watch(dir__src_html+'/**/*.html', ['html','access']);
+  gulp.watch(dir__src_js+'/**/*.js', ['browserify','lint','unit-test']);
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', dir__www]));
