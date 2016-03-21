@@ -56,6 +56,12 @@ gulp.task('test', function() {
     .pipe($.mocha())
 });
 
+gulp.task('a11y', function() {
+    gulp.src(dir__src_html+'/**/*.html')
+    .pipe($.a11y())
+    .pipe($.a11y.reporter());
+});
+
 
 gulp.task('browserify', function () {
   var b = browserify({
