@@ -44,6 +44,12 @@ gulp.task('js', function () {
     .pipe(browserSync.stream());
 });
 
+gulp.task('lint', function() {
+    gulp.src(dir__src_js+'/**/*.js')
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('default'))
+})
+
 gulp.task('browserify', function () {
   var b = browserify({
     entries: dir__src_js+'/strong.js',

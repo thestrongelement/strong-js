@@ -8,10 +8,15 @@ var view = module.exports = {
   },
   registerClick: function() {
     var id;
-    var listitem = document.querySelectorAll('#menu li');
+    var listItem = document.querySelectorAll('#menu li');
     
-    for(var i=0;i< listitem.length; i++) {
-      listitem[i].addEventListener('click',function() {   
+    for(var i=0;i< listItem.length; i++) {
+      view.addListener(listItem[i]);
+    }
+  },
+    
+  addListener: function(listItem) {
+      listItem.addEventListener('click',function() {   
         id = this.getAttribute('data-id');
         //set the current menu item
         helper.setCurrent(+id);
@@ -19,9 +24,8 @@ var view = module.exports = {
         helper.increment();
         //update the menu item in the view
         view.updateCount();
-      })
-      
-    }
+      });
+    
   },
   updateCount: function() {
     //get current menu item
@@ -40,4 +44,4 @@ var view = module.exports = {
     document.querySelector('#days').innerHTML = diff.days;
   }
   
-}
+};
